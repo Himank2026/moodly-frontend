@@ -1,0 +1,52 @@
+.userButton {
+  position: relative; /* This is CRITICAL for your dropdown menu */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.userButton img {
+  border-radius: 50%; /* Makes the avatar circular */
+  object-fit: cover;
+}
+
+.userButton .arrow {
+  border-radius: 0; /* Make sure the arrow isn't a circle */
+}
+
+/* --- Your existing CSS is below --- */
+
+.loginSinup:hover {
+  background: #f1f1f1;
+}
+.userOptions {
+  position: absolute;
+  /* ...rest of your styles... */
+}
+/* ...etc... */
+.loginSinup:hover{
+background: #f1f1f1;
+}
+.userOptions {
+    position: absolute;/* for parent container we have to set position 'relative' if you are confused in it thats why we did it'*/
+    right: 0;
+    top: 120%;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.177);
+  }
+  .userOption {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .userOption:hover {
+    background: #f1f1f1;
+    color: gray;
+  }

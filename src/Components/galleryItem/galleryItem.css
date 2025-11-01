@@ -1,0 +1,65 @@
+.galleryItem {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  
+  .galleryItem img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+  
+  /* Overlay (if you need a hover effect) */
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  .galleryItem:hover .overlay {
+    display: block;
+  }
+  
+  /* Save Button - top-right corner */
+  .saveButton {
+    display: none;
+    position: absolute;
+    background-color:#0e3c75;
+    color: white;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .galleryItem:hover .saveButton {
+    display: block;
+  }
+  
+  /* Share Icons - bottom-left corner */
+  .overlayIcons {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+   
+    z-index: 2;
+   
+    gap: 5px;
+  }
+  
+  
+  .galleryItem:hover .overlayIcons {
+    display: flex;
+  }
+  

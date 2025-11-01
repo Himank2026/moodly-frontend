@@ -1,0 +1,27 @@
+.likeShare{
+    display: flex;
+    align-items: center;
+    gap:15px;
+    
+    
+    
+}
+.likeShare .like,
+.likeShare .share {
+    cursor: pointer;
+}
+.postInteractions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button{
+    right: 10px;
+    background-color:#0e3c75;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+   
+border-radius: 24%;
+}

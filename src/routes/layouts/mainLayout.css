@@ -1,0 +1,16 @@
+.mainLayout {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    
+    
+  }
+  .rightHome {
+    flex: 1;
+   
+    height: 100vh;
+    overflow-y: auto;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+  }

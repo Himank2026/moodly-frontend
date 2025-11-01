@@ -1,0 +1,68 @@
+.postPage {
+    display: flex;
+    width: 95%;
+    
+    gap: 32px; /*between children*/
+    max-width: 900px;     /* Make it wider */
+    min-height: 150px;    /* Lower height baseline */
+    margin: 10px auto;
+    padding: 16px;   /* Less top/bottom, more left/right padding */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .postContainer{
+    display: flex;
+    gap:10px;
+   
+
+
+  }
+
+
+.resize{
+    padding: 8px;
+    flex: 1;
+    
+    height: 600px;
+    width:600px;
+    border-radius: 20px;
+}
+.otherHalf{
+   flex:1;
+   min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+   padding: 10px;
+    
+   
+
+}
+.postUser{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    
+}
+.postUser img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+
+}
+.postUser span{
+    font-size: 15px;
+    color: black;
+    
+
+}
+.LikeShare{
+    gap: 20px;
+}
+.commentContainer{
+    flex: 1;
+}
