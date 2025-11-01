@@ -2,42 +2,43 @@ import React, { useState } from 'react'
 import './gallery.css'
 import GalleryItem from '../galleryItem/galleryItem'
 import { useInfiniteQuery } from '@tanstack/react-query';
-import axios from "axios";
+// REMOVED UNUSED 'axios' IMPORT
 import InfiniteScroll from "react-infinite-scroll-component";
+import apiRequest from '../../utils/apiRequest'; // Assuming this path is correct
 
-
-
-const fetchPins=async()=>{
-   const res=await axios.get(`http://localhost:3001/pins`);
- 
-   return res.data;
-}
+// --- REMOVED: UNUSED fetchPins FUNCTION ---
 
 function single(temp){
   return(
- <GalleryItem 
- key={temp._id}
- id={temp._id}
- image={temp.media}
- height={temp.height}
- width={temp.width}
- />
-);
+    <GalleryItem 
+      key={temp._id}
+      id={temp._id}
+      image={temp.media}
+      height={temp.height}
+      width={temp.width}
+    />
+  );
 }
+
 const Gallery = ({search}) => {
-  const fetchPins = async ({ pageParam,search }) => {
-    const res = await axios.get(
-      `http://localhost:3001/pins?cursor=${pageParam}&search=${
+  
+  // --- CORRECTED: REMOVED HARDCODED URL AND USED apiRequest ---
+  const fetchPins = async ({ pageParam, search }) => {
+    // This is the function being used by useInfiniteQuery
+    const res = await apiRequest.get(
+      // The base URL is now correctly set in apiRequest.js
+      `/pins?cursor=${pageParam}&search=${
       search || ""}`
     );
     return res.data;
   };
+  // -------------------------------------------------------------
   
   
     const { data, fetchNextPage, hasNextPage, status } = useInfiniteQuery({
-      // queryKey: ["pins"],
       // FIXED QUERY KEY
       queryKey: ["pins",search],
+      // The fetchPins function correctly receives pageParam and search
       queryFn: ({ pageParam = 0 }) =>
         fetchPins({ pageParam,search }),
       initialPageParam: 0,
@@ -45,7 +46,6 @@ const Gallery = ({search}) => {
     });
   
     // FIXED: ADD SKELETON LOADING
-    // if (status === "pending") return "Loading...";
     if (status === "pending") return "Loading....";
     if (status === "error") return "Something went wrong...";
   
