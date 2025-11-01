@@ -3,9 +3,8 @@ import './postPage.css'
 import PostComponent from '../../Components/postComponent/postComponent'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router'
-import axios from 'axios'
-
-
+// import axios from 'axios' // --- 1. REMOVED
+import apiRequest from '../../utils/apiRequest' // --- 2. ADDED (Adjust path if needed)
 
 
 const PostPage = () => {
@@ -13,7 +12,10 @@ const PostPage = () => {
 
   const { isPending, error, data } = useQuery({
     queryKey: ["pin", id],
-    queryFn: () => axios.get(`http://localhost:3001/pins/${id}`).then((res) => res.data),
+    
+    // --- 3. CORRECTED API CALL ---
+    queryFn: () => 
+      apiRequest.get(`/pins/${id}`).then((res) => res.data),
     
   });
 
